@@ -2,11 +2,18 @@ function mincost(arr)
 { 
 //write your code here
 // return the min cost
-	console.log(mincost([4, 3, 2, 6]));  // 29
-console.log(mincost([1, 2, 3, 4, 5]));  // 33
-console.log(mincost([5]));  // 0
-
-  
+	
+ let cost = 0;
+  while (arr.length > 1) {
+    arr.sort((a, b) => a - b);
+    let first = arr.shift();
+    let second = arr.shift();
+    let newRope = first + second;
+    cost += newRope;
+    arr.push(newRope);
+  }
+  return cost;
 }
+  let arr = [1, 2, 3, 4, 5];  // ✅ define the array here
+    alert(mincost(arr));  
 
-module.exports=mincost;
